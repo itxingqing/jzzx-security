@@ -12,7 +12,30 @@
 		<dependency>
 			<groupId>com.jzzx.security</groupId>
 			<artifactId>jzzx-security-browser</artifactId>
-			<version>${jzzx-project-version}</version>
+			<version>${jzzx.project.version}</version>
 		</dependency>
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-test</artifactId>
+      </dependency>
 	</dependencies>
+	<!-- 增加demo项目在打包时间，将demo依赖的包一起打包到jar中，可以直接通过java -jar运行，自动启动spring boot服务 -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.jzzx.HelloSpringSecurity</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

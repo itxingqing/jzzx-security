@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-@EnableWebSecurity(debug=true)
+@EnableWebSecurity(debug=false)
 public class DefineSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	/**定义认证用户信息获取来源，密码校验规则等*/

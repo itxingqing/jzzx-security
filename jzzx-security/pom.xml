@@ -6,8 +6,8 @@
   <packaging>pom</packaging>
   
   <properties>
-  	<jzzx-project-version>0.0.1-SNAPSHOT</jzzx-project-version>
-  	<java-version>1.8</java-version>
+  	<jzzx.project.version>0.0.1-SNAPSHOT</jzzx.project.version>
+  	<java.version>1.8</java.version>
   </properties>
   
   <!-- 使maven可以自动的查找各个框架相互依赖包的版本，无需开发人员来指定或查找，避免出错 -->
@@ -16,14 +16,14 @@
   		<dependency>
   			<groupId>io.spring.platform</groupId>
   			<artifactId>platform-bom</artifactId>
-  			<version>Cairo-SR6</version>
+  			<version>Cairo-SR7</version>
   			<type>pom</type>
   			<scope>import</scope>
   		</dependency>
   		<dependency>
   			<groupId>org.springframework.cloud</groupId>
   			<artifactId>spring-cloud-dependencies</artifactId>
-  			<version>Finchley.RELEASE</version>
+  			<version>Finchley.SR2</version>
   			<type>pom</type>
   			<scope>import</scope>
   		</dependency>
@@ -38,8 +38,8 @@
 		    <artifactId>maven-compiler-plugin</artifactId>
 		    <version>3.7.0</version>
   			<configuration>
-  				<source>${java-version}</source>
-  				<target>${java-version}</target>
+  				<source>${java.version}</source>
+  				<target>${java.version}</target>
   				<encoding>UTF-8</encoding>
   			</configuration>
   		</plugin>
