@@ -42,7 +42,7 @@ public class UserControllerTest {
 	}
 	@Test
 	public void whenQuerySuccessByName() throws Exception {
-		mockMvc.perform(get("/userByCondition")
+		mockMvc.perform(get("/user/userByCondition")
 						.contentType(MediaType.APPLICATION_JSON_UTF8)
 						.param("name", "123"))
 						.andExpect(status().isOk())
@@ -52,7 +52,7 @@ public class UserControllerTest {
 	}
 	@Test
 	public void queryUsersByCondition() throws Exception {
-		String result = mockMvc.perform(get("/userByCondition")
+		String result = mockMvc.perform(get("/user/userByCondition")
 						.contentType(MediaType.APPLICATION_JSON_UTF8)
 						.param("name", "tom")
 						.param("ageRange", "10")

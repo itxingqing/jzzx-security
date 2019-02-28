@@ -1,6 +1,8 @@
 com\jzzx\pageModel\UserPage.class
+com\jzzx\po\User$showDetailInfos.class
 com\jzzx\test\MainController.class
 com\jzzx\config\DefineSecurityConfig.class
 com\jzzx\controller\UserController.class
 com\jzzx\HelloSpringSecurity.class
+com\jzzx\po\User$showSimpleInfos.class
 com\jzzx\po\User.class
