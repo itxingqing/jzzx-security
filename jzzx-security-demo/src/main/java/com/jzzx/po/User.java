@@ -1,5 +1,14 @@
 package com.jzzx.po;
 
+
+import java.util.Date;
+
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 
 public class User {
@@ -11,8 +20,12 @@ public class User {
 	public interface showDetailInfos extends showSimpleInfos {}
 	
 	private String id;
+	@NotBlank//定义此属性不能为空，配合controller中的@valid注解使用
 	private String name;
 	private String age;
+	
+	//如何处理日期类型
+	private Date birthday;
 	
 	//在get方法上定义视图
 	@JsonView(showSimpleInfos.class)
@@ -35,6 +48,14 @@ public class User {
 	}
 	public void setAge(String age) {
 		this.age = age;
+	}
+	@JsonView(showDetailInfos.class)
+	//@JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+	public Date getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 	
 	

@@ -1,8 +1,11 @@
 package com.jzzx.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -92,5 +95,25 @@ public class UserControllerTest {
 		mockMvc.perform(get("/user/a")
 				.contentType(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(status().is4xxClientError());
+	}
+	/*
+	 * 创建用户
+	 */
+	@Test
+	public void createUser() throws Exception {
+		Date date = new Date();
+		System.out.println(date.getTime());
+		String userInfo = "{\"id\":null,\"name\":\"tom\",\"age\":18, \"birthday\":"+date.getTime()+"}";
+		String result = mockMvc.perform(post("/user")
+				.contentType(MediaType.APPLICATION_JSON_UTF8)
+				.content(userInfo)//设定内容json字符串
+				)
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.id").value(111))
+				.andReturn().getResponse().getContentAsString();
+		
+		System.out.println(result);
+				
+		
 	}
 }
